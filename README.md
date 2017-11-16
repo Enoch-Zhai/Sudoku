@@ -5,7 +5,8 @@ In this project, we will provide below features:
   2. Play the game.( UI side is in process )
 
 If you don't know what is Sudoku, please refer to below URLs:
-Wiki: https://en.wikipedia.org/wiki/Sudoku
-Baidu: https://baike.baidu.com/item/%E6%95%B0%E7%8B%AC/74847?fr=aladdin&fromid=3182509&fromtitle=Sudoku
 
-If you have any nice idea, please contact me. Thanks at advance.
+Wiki: https://en.wikipedia.org/wiki/Sudoku
+
+If you have any nice idea, please contact me. 
+Thanks at advance.
