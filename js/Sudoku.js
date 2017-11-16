@@ -266,23 +266,23 @@ function isContradict( position, tmpNumber ) {
 	// console.log(nRow + '  ' + nColumn + ' aaaa\n');
 	for( nIt = nRow * 9 ; nIt < nRow * 9 + 9 && nIt < 81; nIt ++ ) {
 		// console.log(nIt + ' ' + cells[ nIt ].number[0] + ' ' + tmpNumber + '...\n' );
-		if( cells[ nIt ].number[0] == tmpNumber ) {
+		if( cells[ nIt ].number[ 0 ] == tmpNumber ) {
 			return true;
 		}
 	}
 
 	// check the column consistence
 	for( nIt = nColumn ; nIt < 8 * 9 + nColumn && nIt < 81 ; nIt += 9 ) {
-		if( cells[ nIt ].number[0] == tmpNumber ) {
+		if( cells[ nIt ].number[ 0 ] == tmpNumber ) {
 			return true;
 		}
 	}
 
 	// check the block consistence
-	for ( let i = 0; i < cells.length ; i++ ) {
-		if ( i!= position && 
-			cells[i].blockId == cells[position].blockId && 
-			cells[i].number[0] == tmpNumber ) {
+	for ( nIt = 0; nIt < cells.length; nIt++ ) {
+		if ( nIt != position && 
+			cells[ nIt ].blockId == cells[ position ].blockId && 
+			cells[ nIt ].number[ 0 ] == tmpNumber ) {
 			return true;
 		}
 	}	

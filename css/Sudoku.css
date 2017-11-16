@@ -45,8 +45,8 @@
 	display: block;
 	color: white;
 	text-align: center;
-	// width:60rem;
-	// background-color: #dddddd;
+/* 	// width:60rem;
+	// background-color: #dddddd; */
 	padding: 1rem 2rem;
 	text-decoration: none;
 }
@@ -61,37 +61,63 @@
 }
 
 .border-left-bold {
-	border-left: 0.3rem solid black;
+	border-left: 3px solid black;
+}
+
+.border-left-none {
+	border-left: none;
 }
 
 .border-right-bold {
-	border-right: 0.3rem solid black;
+	border-right: 3px solid black;
+}
+
+.border-right-none {
+	border-right: none;
 }
 
 .border-top-bold {
-	border-top: 0.3rem solid black;
+	border-top: 3px solid black;
+}
+
+.border-top-none {
+	border-top: none;
 }
 
 .border-bottom-bold {
-	border-bottom: 0.3rem solid black;
+	border-bottom: 3px solid black;
 }
-// #header-navi-bar a.active {
+
+.border-bottom-none {
+	border-bottom: none;
+}
+/* // #header-navi-bar a.active {
 // 	background-color: #4CAF50;
 // 	color: white;
-// }
+// } */
 
 .cells {
-	border-collapse:collapse;
+	/* border-collapse:collapse; */
 }
 
-table, tr, td {
-	border: 0.1rem solid black;
+.Sudoku-Row, .Sudoku-Column {
+	/* border: 0.1rem solid black; */
 	text-align: center;
+	font-size: 0px;
+	background-color: #444;
 }
 
-tr td {
+#Sudoku-Cells input {
+	/* border: 0.1rem solid black; */
+	text-align: center;
+	/* margin: 0; */
+	/* padding: 0; */
 	width: 3rem;
-	height: 3rem;
+	height: 3rem;	
+	border-radius: 0;
+	outline: none;
+	/* border: none; */
+	/* background-color: #333; */
 	
 }
 

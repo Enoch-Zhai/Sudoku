@@ -24,7 +24,7 @@
 			nDifficultyIndex = oDifficultySelected.selectedIndex;
 			nDifficultyValue = oDifficultySelected.options[ nDifficultyIndex ].value;
 
-			var oSudoku = Array.apply( null, { length: 81 } ).map( function( index ) {
+			var oSudoku = Array.apply( null, { length: 81 } ).map( function( _, index ) {
 				return {
 					id: index,
 					number: [0],
@@ -107,113 +107,113 @@
 			  	Initial
 			  </button> -->
 
-			  <table class="cells" style="background-color:#1abc9c">
-				  <tr id="Sudoku-Row1">
-				  	<td id="Sudoku-Col11" class="border-left-bold border-top-bold"></td>
-				  	<td id="Sudoku-Col12" class="border-top-bold"></td>
-				  	<td id="Sudoku-Col13" class="border-top-bold border-right-bold"></td>
-				  	<td id="Sudoku-Col14" class="border-top-bold"></td>
-				  	<td id="Sudoku-Col15" class="border-top-bold"></td>
-				  	<td id="Sudoku-Col16" class="border-top-bold border-right-bold"></td>
-				  	<td id="Sudoku-Col17" class="border-top-bold"></td>
-				  	<td id="Sudoku-Col18" class="border-top-bold"></td>
-				  	<td id="Sudoku-Col19" class="border-top-bold border-right-bold"></td>
-				  </tr>
-				  <tr id="Sudoku-Row2">
-				  	<td id="Sudoku-Col21" class="border-left-bold"></td>
-				  	<td id="Sudoku-Col22"></td>
-				  	<td id="Sudoku-Col23" class="border-right-bold"></td>
-				  	<td id="Sudoku-Col24"></td>
-				  	<td id="Sudoku-Col25"></td>
-				  	<td id="Sudoku-Col26" class="border-right-bold"></td>
-				  	<td id="Sudoku-Col27"></td>
-				  	<td id="Sudoku-Col28"></td>
-				  	<td id="Sudoku-Col29" class="border-right-bold"></td>
-				  </tr>
-				  <tr id="Sudoku-Row3">
-				  	<td id="Sudoku-Col31" class="border-left-bold"></td>
-				  	<td id="Sudoku-Col32"></td>
-				  	<td id="Sudoku-Col33" class="border-right-bold"></td>
-				  	<td id="Sudoku-Col34"></td>
-				  	<td id="Sudoku-Col35"></td>
-				  	<td id="Sudoku-Col36" class="border-right-bold"></td>
-				  	<td id="Sudoku-Col37"></td>
-				  	<td id="Sudoku-Col38"></td>
-				  	<td id="Sudoku-Col39" class="border-right-bold"></td>
-				  </tr>
-				  <tr id="Sudoku-Row4">
-				  	<td id="Sudoku-Col41" class="border-left-bold border-top-bold"></td>
-				  	<td id="Sudoku-Col42" class="border-top-bold"></td>
-				  	<td id="Sudoku-Col43" class="border-top-bold border-right-bold"></td>
-				  	<td id="Sudoku-Col44" class="border-top-bold"></td>
-				  	<td id="Sudoku-Col45" class="border-top-bold"></td>
-				  	<td id="Sudoku-Col46" class="border-top-bold border-right-bold"></td>
-				  	<td id="Sudoku-Col47" class="border-top-bold"></td>
-				  	<td id="Sudoku-Col48" class="border-top-bold"></td>
-				  	<td id="Sudoku-Col49" class="border-top-bold border-right-bold"></td>
-				  </tr>
-				  <tr id="Sudoku-Row5">
-				  	<td id="Sudoku-Col51" class="border-left-bold"></td>
-				  	<td id="Sudoku-Col52"></td>
-				  	<td id="Sudoku-Col53" class="border-right-bold"></td>
-				  	<td id="Sudoku-Col54"></td>
-				  	<td id="Sudoku-Col55"></td>
-				  	<td id="Sudoku-Col56" class="border-right-bold"></td>
-				  	<td id="Sudoku-Col57"></td>
-				  	<td id="Sudoku-Col58"></td>
-				  	<td id="Sudoku-Col59" class="border-right-bold"></td>
-				  </tr>
-				  <tr id="Sudoku-Row6">
-				  	<td id="Sudoku-Col61" class="border-left-bold"></td>
-				  	<td id="Sudoku-Col62"></td>
-				  	<td id="Sudoku-Col63" class="border-right-bold"></td>
-				  	<td id="Sudoku-Col64"></td>
-				  	<td id="Sudoku-Col65"></td>
-				  	<td id="Sudoku-Col66" class="border-right-bold"></td>
-				  	<td id="Sudoku-Col67"></td>
-				  	<td id="Sudoku-Col68"></td>
-				  	<td id="Sudoku-Col69" class="border-right-bold"></td>
-				  </tr>
-				  <tr id="Sudoku-Row7">
-				  	<td id="Sudoku-Col71" class="border-left-bold border-top-bold"></td>
-				  	<td id="Sudoku-Col72" class="border-top-bold"></td>
-				  	<td id="Sudoku-Col73" class="border-top-bold border-right-bold"></td>
-				  	<td id="Sudoku-Col74" class="border-top-bold"></td>
-				  	<td id="Sudoku-Col75" class="border-top-bold"></td>
-				  	<td id="Sudoku-Col76" class="border-top-bold border-right-bold"></td>
-				  	<td id="Sudoku-Col77" class="border-top-bold"></td>
-				  	<td id="Sudoku-Col78" class="border-top-bold"></td>
-				  	<td id="Sudoku-Col79" class="border-top-bold border-right-bold"></td>
-				  </tr>
-				  <tr id="Sudoku-Row8">
-				  	<td id="Sudoku-Col81" class="border-left-bold"></td>
-				  	<td id="Sudoku-Col82"></td>
-				  	<td id="Sudoku-Col83" class="border-right-bold"></td>
-				  	<td id="Sudoku-Col84"></td>
-				  	<td id="Sudoku-Col85"></td>
-				  	<td id="Sudoku-Col86" class="border-right-bold"></td>
-				  	<td id="Sudoku-Col87"></td>
-				  	<td id="Sudoku-Col88"></td>
-				  	<td id="Sudoku-Col89" class="border-right-bold"></td>
-				  </tr>
-				  <tr id="Sudoku-Row9">
-				  	<td id="Sudoku-Col91" class="border-left-bold border-bottom-bold"></td>
-				  	<td id="Sudoku-Col92" class="border-bottom-bold"></td>
-				  	<td id="Sudoku-Col93" class="border-right-bold border-bottom-bold"></td>
-				  	<td id="Sudoku-Col94" class="border-bottom-bold"></td>
-				  	<td id="Sudoku-Col95" class="border-bottom-bold"></td>
-				  	<td id="Sudoku-Col96" class="border-right-bold border-bottom-bold"></td>
-				  	<td id="Sudoku-Col97" class="border-bottom-bold"></td>
-				  	<td id="Sudoku-Col98" class="border-bottom-bold"></td>
-				  	<td id="Sudoku-Col99" class="border-right-bold border-bottom-bold"></td>
-				  </tr>
-				</table>
+			  <div id="Sudoku-Cells" class="cells" style="background-color:#1abc9c">
+				  <div class="Sudoku-Row" id="Sudoku-Row1">
+				  	<input id="Sudoku-Col11" class="border-left-bold border-top-bold border-right-none border-bottom-none">
+				  	<input id="Sudoku-Col12" class="border-top-bold border-right-none border-bottom-none">
+				  	<input id="Sudoku-Col13" class="border-top-bold border-right-bold border-bottom-none">
+				  	<input id="Sudoku-Col14" class="border-left-none border-top-bold border-right-none border-bottom-none">
+				  	<input id="Sudoku-Col15" class="border-top-bold border-right-none border-bottom-none">
+				  	<input id="Sudoku-Col16" class="border-top-bold border-right-bold border-bottom-none">
+				  	<input id="Sudoku-Col17" class="border-left-none border-top-bold  border-right-none border-bottom-none">
+				  	<input id="Sudoku-Col18" class="border-top-bold  border-right-none border-bottom-none">
+				  	<input id="Sudoku-Col19" class="border-top-bold border-right-bold border-bottom-none">
+				  </div>
+				  <div class="Sudoku-Row" id="Sudoku-Row2">
+				  	<input id="Sudoku-Col21" class="border-left-bold border-right-none border-bottom-none">
+				  	<input id="Sudoku-Col22" class="border-right-none border-bottom-none">
+				  	<input id="Sudoku-Col23" class="border-right-bold border-bottom-none">
+				  	<input id="Sudoku-Col24" class="border-left-none border-right-none border-bottom-none">
+				  	<input id="Sudoku-Col25" class="border-right-none border-bottom-none">
+				  	<input id="Sudoku-Col26" class="border-right-bold border-bottom-none">
+				  	<input id="Sudoku-Col27" class="border-left-none border-right-none border-bottom-none">
+				  	<input id="Sudoku-Col28" class="border-right-none border-bottom-none">
+				  	<input id="Sudoku-Col29" class="border-right-bold border-bottom-none">
+				  </div>
+				  <div class="Sudoku-Row" id="Sudoku-Row3">
+				  	<input id="Sudoku-Col31" class="border-left-bold border-right-none border-bottom-none">
+				  	<input id="Sudoku-Col32" class="border-right-none border-bottom-none">
+				  	<input id="Sudoku-Col33" class="border-right-bold border-bottom-none">
+				  	<input id="Sudoku-Col34" class="border-left-none border-right-none border-bottom-none">
+				  	<input id="Sudoku-Col35" class="border-right-none border-bottom-none">
+				  	<input id="Sudoku-Col36" class="border-right-bold border-bottom-none">
+				  	<input id="Sudoku-Col37" class="border-left-none border-right-none border-bottom-none">
+				  	<input id="Sudoku-Col38" class="border-right-none border-bottom-none">
+				  	<input id="Sudoku-Col39" class="border-right-bold border-bottom-none">
+				  </div>
+				  <div class="Sudoku-Row" id="Sudoku-Row4">
+				  	<input id="Sudoku-Col41" class="border-left-bold border-top-bold border-right-none border-bottom-none">
+				  	<input id="Sudoku-Col42" class="border-top-bold border-right-none border-bottom-none">
+				  	<input id="Sudoku-Col43" class="border-top-bold border-right-bold border-bottom-none">
+				  	<input id="Sudoku-Col44" class="border-left-none border-top-bold border-right-none border-bottom-none">
+				  	<input id="Sudoku-Col45" class="border-top-bold border-right-none border-bottom-none">
+				  	<input id="Sudoku-Col46" class="border-top-bold border-right-bold border-bottom-none">
+				  	<input id="Sudoku-Col47" class="border-left-none border-top-bold border-right-none border-bottom-none">
+				  	<input id="Sudoku-Col48" class="border-top-bold border-right-none border-bottom-none">
+				  	<input id="Sudoku-Col49" class="border-top-bold border-right-bold border-bottom-none">
+				  </div>
+				  <div class="Sudoku-Row" id="Sudoku-Row5">
+				  	<input id="Sudoku-Col51" class="border-left-bold  border-right-none border-bottom-none">
+				  	<input id="Sudoku-Col52" class="border-right-none border-bottom-none">
+				  	<input id="Sudoku-Col53" class="border-right-bold border-bottom-none">
+				  	<input id="Sudoku-Col54" class="border-left-none border-right-none border-bottom-none">
+				  	<input id="Sudoku-Col55" class="border-right-none border-bottom-none">
+				  	<input id="Sudoku-Col56" class="border-right-bold border-bottom-none">
+				  	<input id="Sudoku-Col57" class="border-left-none border-right-none border-bottom-none">
+				  	<input id="Sudoku-Col58" class="border-right-none border-bottom-none">
+				  	<input id="Sudoku-Col59" class="border-right-bold border-bottom-none">
+				  </div>
+				  <div class="Sudoku-Row" id="Sudoku-Row6">
+				  	<input id="Sudoku-Col61" class="border-left-bold border-right-none border-bottom-none">
+				  	<input id="Sudoku-Col62" class="border-right-none border-bottom-none">
+				  	<input id="Sudoku-Col63" class="border-right-bold border-bottom-none">
+				  	<input id="Sudoku-Col64" class="border-left-none border-right-none border-bottom-none">
+				  	<input id="Sudoku-Col65" class=" border-right-none border-bottom-none">
+				  	<input id="Sudoku-Col66" class="border-right-bold border-bottom-none">
+				  	<input id="Sudoku-Col67" class="border-left-none border-right-none border-bottom-none">
+				  	<input id="Sudoku-Col68" class="border-right-none border-bottom-none">
+				  	<input id="Sudoku-Col69" class="border-right-bold border-bottom-none" />
+				  </div>
+				  <div class="Sudoku-Row" id="Sudoku-Row7">
+				  	<input id="Sudoku-Col71" class="border-left-bold border-top-bold border-right-none border-bottom-none" />
+				  	<input id="Sudoku-Col72" class="border-top-bold border-right-none border-bottom-none" />
+				  	<input id="Sudoku-Col73" class="border-top-bold border-right-bold border-bottom-none" />
+				  	<input id="Sudoku-Col74" class="border-left-none border-top-bold border-right-none border-bottom-none" />
+				  	<input id="Sudoku-Col75" class="border-top-bold border-right-none border-bottom-none" />
+				  	<input id="Sudoku-Col76" class="border-top-bold border-right-bold border-bottom-none" />
+				  	<input id="Sudoku-Col77" class="border-left-none border-top-bold border-right-none border-bottom-none" />
+				  	<input id="Sudoku-Col78" class="border-top-bold border-right-none border-bottom-none" />
+				  	<input id="Sudoku-Col79" class="border-top-bold border-right-bold border-bottom-none" />
+				  </div>
+				  <div class="Sudoku-Row" id="Sudoku-Row8" />
+				  	<input id="Sudoku-Col81" class="border-left-bold border-right-none border-bottom-none" />
+				  	<input id="Sudoku-Col82" class="border-right-none border-bottom-none"/>
+				  	<input id="Sudoku-Col83" class="border-right-bold border-bottom-none" />
+				  	<input id="Sudoku-Col84" class="border-left-none border-right-none border-bottom-none"/>
+				  	<input id="Sudoku-Col85" class="border-right-none border-bottom-none"/>
+				  	<input id="Sudoku-Col86" class="border-right-bold border-bottom-none" />
+				  	<input id="Sudoku-Col87" class="border-left-none border-right-none border-bottom-none"/>
+				  	<input id="Sudoku-Col88" class="border-right-none border-bottom-none"/>
+				  	<input id="Sudoku-Col89" class="border-right-bold border-bottom-none" />
+				  </div>
+				  <div class="Sudoku-Row" id="Sudoku-Row9">
+				  	<input id="Sudoku-Col91" class="border-left-bold border-right-none border-bottom-bold" />
+				  	<input id="Sudoku-Col92" class="border-right-none border-bottom-bold" />
+				  	<input id="Sudoku-Col93" class="border-right-bold border-bottom-bold" />
+				  	<input id="Sudoku-Col94" class="border-left-none border-right-none border-bottom-bold" />
+				  	<input id="Sudoku-Col95" class="border-right-none border-bottom-bold" />
+				  	<input id="Sudoku-Col96" class="border-right-bold border-bottom-bold" />
+				  	<input id="Sudoku-Col97" class="border-left-none border-right-none border-bottom-bold" />
+				  	<input id="Sudoku-Col98" class="border-right-none border-bottom-bold" />
+				  	<input id="Sudoku-Col99" class="border-right-bold border-bottom-bold" />
+				  </div>
+				</div>
 			</div>
 		</div>
 	</div>
 	
 	<!-- <script src="./js/funciton.js"></script> -->
-	<script src="./js/lodash.min.js"></script>
+	<!-- <script src="./js/lodash.min.js"></script> -->
 	<script src="./js/sudoku.js"></script>
 	
 	
