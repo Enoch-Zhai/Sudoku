@@ -1,0 +1,221 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<meta charset="utf-8">
+	<title>Sudoku</title>
+	<link href="./css/Sudoku.css" rel="stylesheet" type="text/css" />
+	<!-- <script src="./js/vue"></script> -->
+	<script type="text/javascript">
+		// window.onload = function() {
+		// 	// onInitial();
+		// 	setTime();
+		// }	
+
+		var int;
+
+		function onInitial() {
+			var nIt, sColId, nRowNum, nColNum, nTmp, oElement, oDifficultySelected, nDifficultyIndex, nDifficultyValue;
+
+			if ( int > 0 ) {
+				int = clearInterval( int );
+			} 
+
+			oDifficultySelected = document.getElementById( "Sudoku-difficulty" );
+			nDifficultyIndex = oDifficultySelected.selectedIndex;
+			nDifficultyValue = oDifficultySelected.options[ nDifficultyIndex ].value;
+
+			var oSudoku = Array.apply( null, { length: 81 } ).map( function( index ) {
+				return {
+					id: index,
+					number: [0],
+					blockId: index
+				};	
+			});
+
+
+			oSudoku = generateSudoku( oSudoku, nDifficultyValue );
+
+			for( nIt = 0; nIt < oSudoku.length && nIt < 81; nIt++ ) {
+
+				nRowNum = Math.floor( nIt  / 9 ) + 1;
+				nColNum = nIt % 9 + 1;
+				sColId = "Sudoku-Col" + nRowNum + nColNum;
+				oElement = document.getElementById( sColId );
+				oElement.innerText = oSudoku[ nIt ].number[ 0 ];
+			}
+
+			int = setInterval("setTime()", 100);
+		}
+
+		function onShuffle() {
+			var aTdValue = document.getElementsByTagName("td");
+			aTdValue = _.shuffle( aTdValue );
+			aTdValue.toString();			
+		}
+
+		// function setTime() {
+		// 	var oElement = document.getElmentById("myTime");
+		// 	var dDate = new Date();
+		// 	var tHours = dDate.getHours();
+		// 	var tMinutes = dDate.getMinutes();
+		// 	var tSeconds = dDate.getSeconds();
+		// 	var tMilliSeconds = dDate.getMilliseconds();
+		// 	oElement.value = tHours + ':' + tMinutes + ":" + tSeconds + "." + tMilliSeconds;
+		// }
+	</script>
+
+</head>
+<body>
+	<div class="bodyContainer">
+		<div id="header">
+			<div id="header-navi-bar">
+				<ul>
+					<li><a href="#home">数独</a></li>
+					<li><a href="#home">数独</a></li>
+					<li class="floatRight"><a href="#home">数独</a></li>	
+				</ul>
+			</div>
+		</div>
+
+		<div id="sudoku-demo" class="demo">
+<!-- 		    <h1>Lazy Sudoku</h1>
+		    <p>Keep hitting the shuffle button until you win.</p> -->
+			
+			<div>
+				<input type="text" class="inputNoBorder" value="难易程度" readonly />
+				<select id="Sudoku-difficulty" onChange="onInitial()">
+					<option value="0"></option>
+					<option value="1">简单级</option>
+					<option value="2">初级</option>
+					<option value="3">中级</option>
+					<option value="4">困难级</option>
+					<option value="5">骨灰级</option>
+				</select>	
+			</div>
+
+		    <div id="time">
+				<input id="myTime" class="inputNoBorder" type="text" value="00:00:00.0" readonly>
+		    </div>
+
+		    <div class="mainContainer" style="background-color:#555">
+
+<!-- 			  <button id="Sudoku-Shuffle" onclick="onShuffle()">
+			    Shuffle
+			  </button>
+
+			  <button id="Sudoku-Initial" onclick="onInitial()">
+			  	Initial
+			  </button> -->
+
+			  <table class="cells" style="background-color:#1abc9c">
+				  <tr id="Sudoku-Row1">
+				  	<td id="Sudoku-Col11" class="border-left-bold border-top-bold"></td>
+				  	<td id="Sudoku-Col12" class="border-top-bold"></td>
+				  	<td id="Sudoku-Col13" class="border-top-bold border-right-bold"></td>
+				  	<td id="Sudoku-Col14" class="border-top-bold"></td>
+				  	<td id="Sudoku-Col15" class="border-top-bold"></td>
+				  	<td id="Sudoku-Col16" class="border-top-bold border-right-bold"></td>
+				  	<td id="Sudoku-Col17" class="border-top-bold"></td>
+				  	<td id="Sudoku-Col18" class="border-top-bold"></td>
+				  	<td id="Sudoku-Col19" class="border-top-bold border-right-bold"></td>
+				  </tr>
+				  <tr id="Sudoku-Row2">
+				  	<td id="Sudoku-Col21" class="border-left-bold"></td>
+				  	<td id="Sudoku-Col22"></td>
+				  	<td id="Sudoku-Col23" class="border-right-bold"></td>
+				  	<td id="Sudoku-Col24"></td>
+				  	<td id="Sudoku-Col25"></td>
+				  	<td id="Sudoku-Col26" class="border-right-bold"></td>
+				  	<td id="Sudoku-Col27"></td>
+				  	<td id="Sudoku-Col28"></td>
+				  	<td id="Sudoku-Col29" class="border-right-bold"></td>
+				  </tr>
+				  <tr id="Sudoku-Row3">
+				  	<td id="Sudoku-Col31" class="border-left-bold"></td>
+				  	<td id="Sudoku-Col32"></td>
+				  	<td id="Sudoku-Col33" class="border-right-bold"></td>
+				  	<td id="Sudoku-Col34"></td>
+				  	<td id="Sudoku-Col35"></td>
+				  	<td id="Sudoku-Col36" class="border-right-bold"></td>
+				  	<td id="Sudoku-Col37"></td>
+				  	<td id="Sudoku-Col38"></td>
+				  	<td id="Sudoku-Col39" class="border-right-bold"></td>
+				  </tr>
+				  <tr id="Sudoku-Row4">
+				  	<td id="Sudoku-Col41" class="border-left-bold border-top-bold"></td>
+				  	<td id="Sudoku-Col42" class="border-top-bold"></td>
+				  	<td id="Sudoku-Col43" class="border-top-bold border-right-bold"></td>
+				  	<td id="Sudoku-Col44" class="border-top-bold"></td>
+				  	<td id="Sudoku-Col45" class="border-top-bold"></td>
+				  	<td id="Sudoku-Col46" class="border-top-bold border-right-bold"></td>
+				  	<td id="Sudoku-Col47" class="border-top-bold"></td>
+				  	<td id="Sudoku-Col48" class="border-top-bold"></td>
+				  	<td id="Sudoku-Col49" class="border-top-bold border-right-bold"></td>
+				  </tr>
+				  <tr id="Sudoku-Row5">
+				  	<td id="Sudoku-Col51" class="border-left-bold"></td>
+				  	<td id="Sudoku-Col52"></td>
+				  	<td id="Sudoku-Col53" class="border-right-bold"></td>
+				  	<td id="Sudoku-Col54"></td>
+				  	<td id="Sudoku-Col55"></td>
+				  	<td id="Sudoku-Col56" class="border-right-bold"></td>
+				  	<td id="Sudoku-Col57"></td>
+				  	<td id="Sudoku-Col58"></td>
+				  	<td id="Sudoku-Col59" class="border-right-bold"></td>
+				  </tr>
+				  <tr id="Sudoku-Row6">
+				  	<td id="Sudoku-Col61" class="border-left-bold"></td>
+				  	<td id="Sudoku-Col62"></td>
+				  	<td id="Sudoku-Col63" class="border-right-bold"></td>
+				  	<td id="Sudoku-Col64"></td>
+				  	<td id="Sudoku-Col65"></td>
+				  	<td id="Sudoku-Col66" class="border-right-bold"></td>
+				  	<td id="Sudoku-Col67"></td>
+				  	<td id="Sudoku-Col68"></td>
+				  	<td id="Sudoku-Col69" class="border-right-bold"></td>
+				  </tr>
+				  <tr id="Sudoku-Row7">
+				  	<td id="Sudoku-Col71" class="border-left-bold border-top-bold"></td>
+				  	<td id="Sudoku-Col72" class="border-top-bold"></td>
+				  	<td id="Sudoku-Col73" class="border-top-bold border-right-bold"></td>
+				  	<td id="Sudoku-Col74" class="border-top-bold"></td>
+				  	<td id="Sudoku-Col75" class="border-top-bold"></td>
+				  	<td id="Sudoku-Col76" class="border-top-bold border-right-bold"></td>
+				  	<td id="Sudoku-Col77" class="border-top-bold"></td>
+				  	<td id="Sudoku-Col78" class="border-top-bold"></td>
+				  	<td id="Sudoku-Col79" class="border-top-bold border-right-bold"></td>
+				  </tr>
+				  <tr id="Sudoku-Row8">
+				  	<td id="Sudoku-Col81" class="border-left-bold"></td>
+				  	<td id="Sudoku-Col82"></td>
+				  	<td id="Sudoku-Col83" class="border-right-bold"></td>
+				  	<td id="Sudoku-Col84"></td>
+				  	<td id="Sudoku-Col85"></td>
+				  	<td id="Sudoku-Col86" class="border-right-bold"></td>
+				  	<td id="Sudoku-Col87"></td>
+				  	<td id="Sudoku-Col88"></td>
+				  	<td id="Sudoku-Col89" class="border-right-bold"></td>
+				  </tr>
+				  <tr id="Sudoku-Row9">
+				  	<td id="Sudoku-Col91" class="border-left-bold border-bottom-bold"></td>
+				  	<td id="Sudoku-Col92" class="border-bottom-bold"></td>
+				  	<td id="Sudoku-Col93" class="border-right-bold border-bottom-bold"></td>
+				  	<td id="Sudoku-Col94" class="border-bottom-bold"></td>
+				  	<td id="Sudoku-Col95" class="border-bottom-bold"></td>
+				  	<td id="Sudoku-Col96" class="border-right-bold border-bottom-bold"></td>
+				  	<td id="Sudoku-Col97" class="border-bottom-bold"></td>
+				  	<td id="Sudoku-Col98" class="border-bottom-bold"></td>
+				  	<td id="Sudoku-Col99" class="border-right-bold border-bottom-bold"></td>
+				  </tr>
+				</table>
+			</div>
+		</div>
+	</div>
+	
+	<!-- <script src="./js/funciton.js"></script> -->
+	<script src="./js/lodash.min.js"></script>
+	<script src="./js/sudoku.js"></script>
+	
+	
+</body>
+</html>

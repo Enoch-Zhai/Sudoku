@@ -1,0 +1,97 @@
+.bodyContainer {
+	width: 70rem;
+	margin: 0 auto;
+}
+
+.mainContainer {
+	width: 70%;
+	// height: 60%;
+	float: left;
+}
+
+// #myTime {
+// 	border: 0rem;
+// }
+
+.inputNoBorder {
+	border: 0rem;
+}
+
+#header-navi-bar ul {
+	list-style-type: none;
+	margin: 0;
+	padding: 0;
+	// width: 8rem;
+	overflow: hidden;
+	background-color: #333;
+	// position: fixed;
+	// bottom: 0;
+	// width: 100%;
+	// border: 1px solid #555;
+}
+
+#header-navi-bar ul li {
+	display: inline;
+	float: left;
+	text-align: center;
+	border-right: 1px solid #bbb;
+}
+
+// #header-navi-bar ul li:last-child {
+// 	float: right;
+// }
+
+#header-navi-bar ul li a {
+	display: block;
+	color: white;
+	text-align: center;
+	// width:60rem;
+	// background-color: #dddddd;
+	padding: 1rem 2rem;
+	text-decoration: none;
+}
+
+#header-navi-bar a:hover {
+	background-color: #4CAF50;
+	// color: white;
+}
+
+.active {
+	background-color: #4CAF50;
+}
+
+.border-left-bold {
+	border-left: 0.3rem solid black;
+}
+
+.border-right-bold {
+	border-right: 0.3rem solid black;
+}
+
+.border-top-bold {
+	border-top: 0.3rem solid black;
+}
+
+.border-bottom-bold {
+	border-bottom: 0.3rem solid black;
+}
+// #header-navi-bar a.active {
+// 	background-color: #4CAF50;
+// 	color: white;
+// }
+
+.cells {
+	border-collapse:collapse;
+}
+
+table, tr, td {
+	border: 0.1rem solid black;
+	text-align: center;
+}
+
+tr td {
+	width: 3rem;
+	height: 3rem;
+	
+}
+
