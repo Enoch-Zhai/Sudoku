@@ -8,5 +8,5 @@ If you don't know what is Sudoku, please refer to below URLs:
 
 Wiki: https://en.wikipedia.org/wiki/Sudoku
 
-If you have any nice idea, please contact me. 
+If you have any nice idea, please contact me.
 Thanks at advance.
