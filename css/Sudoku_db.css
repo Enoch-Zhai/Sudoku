@@ -40,22 +40,34 @@ ul li a {
 
 .main-object {
 	width: 75%;
-	float: left;
+	/* float: left; */
+	/* display: inline; */
 }
 
 .difficulty-timer {
-	float: left;
-}
-
-.main-cells {
-
+	display: inline;
+	/* float: left; */
 }
 
 .difficulty {
-	
+	/* width: 20%; */
+	display: block;
+	background-color: green;
 }
 
 .inputNoBorder {
+	border: 0rem;
+	text-align: center;
+}
+
+div select {
+	/* text-align: center; */
+}
+
+.timer {
+}
+
+.main-cells {
 
 }
 
