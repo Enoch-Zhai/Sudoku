@@ -49,9 +49,7 @@ ul li a {
 .difficulty-timer {
 	width: 100%;
 	height: 3rem;
-	/* text-align: center; */
 	display: block;
-	background-color: red;
 }
 
 .difficulty {
@@ -73,7 +71,7 @@ ul li a {
 }
 
 .difficulty select {
-
+	
 }
 
 .inputNoBorder {
@@ -85,7 +83,6 @@ ul li a {
 	width: 80%;
 	height: 100%;
 	text-align: center;
-	background-color: yellow;
 }
 
 .timer input {
@@ -98,7 +95,7 @@ ul li a {
 }
 
 .main-cells {
-	background-color:#1abc9c
+	/* background-color:#1abc9c */
 }
 
 .cells {
@@ -106,29 +103,95 @@ ul li a {
 }
 
 .sidebar {
-	width: 23%;
+	width: 24%;
+	height: 100%;
 	float: right;
-	/* background-color: black; */
 }
 
 .side-navi-bar {
-
+	height: 3rem;
 }
 
 .side-navi-bar ul {
+	height: 100%;
 	list-style-type: none;
 	margin: 0;
 	padding: 0;
 	overflow: hidden;
-	background-color: blue;
+
 }
 
 .side-navi-bar ul li {
-
+	padding: 0.5rem;
 }
 
 .side-navi-bar ul li a {
+	/* height: 100%; */
 	padding: 0.5rem 1rem;
+}
+
+.sidebar-marquee {
+	margin: 0;
+	padding: 0;
+	height: 29.5rem;
+	text-align: center;
+	border: 1px solid black;
+}
+
+.sidebar-marquee marquee {
+	width: 100%;
+	height: 100%;
+	margin: 0;
+	padding: 0;
+}
+
+.sidebar-marquee-item {
+	width: 90%;
+	height: 3rem;
+	margin: 0 auto;
+	margin-top: 2rem;
+	text-align: center;
+	border: 1px solid black;
+}
+
+.sidebar-marquee-user {
+	width: 30%;
+	height: 100%;
+	float: left;
+	/* background-color: yellow; */
+	/* text-align: center; */
+}
+
+.sidebar-marquee-user-img {
+	margin-top: 0.2rem;
+	text-align: center;
+	/* float: left; */
+	/* display: block; */
+	/* background-color: blue; */
+}
+
+.sidebar-marquee-user a {
+	width: 100%;
+	/* background-color: blue; */
+}
+
+.sidebar-marquee-difficulty-time {
+	width: 70%;
+	height: 100%;
+	float: right;
+}
+
+.sidebar-marquee-difficulty {
+	height: 40%;
+	padding-top: 0.3rem;
+	/* background-color: blue; */
+}
+
+.sidebar-marquee-time {
+	height: 45%;
+	padding-top: 0.2rem;
+	/* margin-top: 1rem; */
+	/* background-color: black; */
 }
 
 .footer {
