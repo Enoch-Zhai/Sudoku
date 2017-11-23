@@ -12,14 +12,14 @@ ul {
 	margin: 0;
 	padding: 0;
 	overflow: hidden;
-	background-color: #333;
+	background-color: #1abc9c;
 }
 
 ul li {
 	display: inline;
 	float: left;
 	text-align: center;
-	border-right: 1px solid #bbb;
+	border-right: 1px solid #1abc9c;
 }
 
 ul li a {
@@ -78,6 +78,9 @@ ul li a {
 	border: 0rem;
 }
 
+input:disabled{
+	background: none;
+}
 .timer {
 	float: right;
 	width: 80%;
@@ -100,6 +103,12 @@ ul li a {
 
 .cells {
 	
+}
+
+.Sudoku-SelectNumber {
+	text-align: center;
+	margin-top: 10px;
+	background: blue;
 }
 
 .sidebar {

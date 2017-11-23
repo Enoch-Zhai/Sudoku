@@ -4,6 +4,66 @@ var tMinutes = 0;
 var tSeconds = 0;
 var tMilliSeconds = 0;
 
+var int;
+
+document.getElementById( "Sudoku-Cells" ).addEventListener( "click", inputValue );
+
+document.getElementById( "Sudoku-Number" ).addEventListener( "click", selectNumber );
+
+function inputValue( oEvent ) {
+	
+	var oSelectedInput = oEvent.srcElement;
+	var sInputId = oSelectedInput.id;
+	var oTargetElement = document.getElementById( "Sudoku-Cells" );
+	var oChildElement = "<div>\
+	\
+	</div>";
+}
+
+function selectNumber( oEvent ) {
+
+	var oSelectedNumber = oEvent.srcElement;
+	var sNumberId = oSelectedNumber.id;
+	
+}
+
+function onInitial() {
+	var oDifficultySelected = document.getElementById("Sudoku-difficulty");
+	var nDifficultyIndex = oDifficultySelected.selectedIndex;
+	var nDifficultyValue = oDifficultySelected.options[ nDifficultyIndex ].value;
+
+	if ( int > 0 ) {
+		int = clearInterval( int );
+	} 
+
+	var oSudoku = Array.apply( null, { length: 81 } ).map( function( _, index ) {
+		return {
+			id: index,
+			number: [0],
+			blockId: index
+		};	
+	});
+
+	oSudoku = generateSudoku( oSudoku, nDifficultyValue );
+
+	for( nIt = 0; nIt < oSudoku.length && nIt < 81; nIt++ ) {	
+
+		nRowNum = Math.floor( nIt  / 9 ) + 1;
+		nColNum = nIt % 9 + 1;
+		sColId = "Sudoku-Col" + nRowNum + nColNum;
+		oElement = document.getElementById( sColId );
+		oElement.value = oSudoku[ nIt ].number[ 0 ];
+		if ( oElement.value === '' ) {
+			oElement.disabled = false;
+		} else {
+			oElement.disabled = true;
+		} 
+		
+	}
+
+	int = setInterval("setTime()", 100);
+}
+
 function generateSudoku( cells, nDifficultyValue ) {
 	// var dDate = new Date();
 	this.cells = cells;
