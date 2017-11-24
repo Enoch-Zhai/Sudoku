@@ -6,25 +6,43 @@ var tMilliSeconds = 0;
 
 var int;
 
-document.getElementById( "Sudoku-Cells" ).addEventListener( "click", inputValue );
+var flag = true;
 
-document.getElementById( "Sudoku-Number" ).addEventListener( "click", selectNumber );
+document.getElementById( "Sudoku-Cells" ).addEventListener( "click", inputValue );
 
 function inputValue( oEvent ) {
 	
 	var oSelectedInput = oEvent.srcElement;
 	var sInputId = oSelectedInput.id;
 	var oTargetElement = document.getElementById( "Sudoku-Cells" );
-	var oChildElement = "<div>\
-	\
-	</div>";
+	var oNode = document.createElement( "div" );
+	var oChildElement = '<div id="Sudoku-Number" class="Sudoku-SelectNumber">\
+						<input type="button" id="numberOne" class="Sudoku-number" value="1" > \
+						<input type="button" id="numberTwo" class="Sudoku-number" value="2" > \
+						<input type="button" id="numberThree" class="Sudoku-number" value="3" > \
+						<input type="button" id="numberFour" class="Sudoku-number" value="4" > \
+						<input type="button" id="numberFive" class="Sudoku-number" value="5" > \
+						<input type="button" id="numberSix" class="Sudoku-number" value="6" > \
+						<input type="button" id="numberSeven" class="Sudoku-number" value="7" > \
+						<input type="button" id="numberEight" class="Sudoku-number" value="8" > \
+						<input type="button" id="numberTen" class="Sudoku-number" value="9" > \
+					</div>';
+		oTargetElement.appendChild( oChildElement );
+		document.getElementById( "Sudoku-Number" ).addEventListener( "click", selectNumber );
 }
 
 function selectNumber( oEvent ) {
 
 	var oSelectedNumber = oEvent.srcElement;
 	var sNumberId = oSelectedNumber.id;
-	
+	var oSelecteButton = document.getElementById( sNumberId );
+	if ( flag ) {
+		oSelecteButton.style.color = "black";
+		flag = false;
+	} else {
+		oSelecteButton.style.color = "";
+		flag = true;
+	}
 }
 
 function onInitial() {
