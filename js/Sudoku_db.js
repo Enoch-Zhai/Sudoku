@@ -3,6 +3,7 @@ var tHours = 0;
 var tMinutes = 0;
 var tSeconds = 0;
 var tMilliSeconds = 0;
+var sCurrentCellId;
 
 var int;
 
@@ -13,11 +14,8 @@ document.getElementById( "Sudoku-Cells" ).addEventListener( "click", inputValue 
 function inputValue( oEvent ) {
 	
 	var oSelectedInput = oEvent.srcElement;
-	var sInputId = oSelectedInput.id;
-	var oTargetElement = document.getElementById( "Sudoku-Cells" );
-	var oNode = document.createElement( "div" );
-	var oChildElement = '<div id="Sudoku-Number" class="Sudoku-SelectNumber">\
-						<input type="button" id="numberOne" class="Sudoku-number" value="1" > \
+	var oTargetElement = document.getElementById( "Sudoku-Number" );
+	var oInnerHtml = '<input type="button" id="numberOne" class="Sudoku-number" value="1" > \
 						<input type="button" id="numberTwo" class="Sudoku-number" value="2" > \
 						<input type="button" id="numberThree" class="Sudoku-number" value="3" > \
 						<input type="button" id="numberFour" class="Sudoku-number" value="4" > \
@@ -25,10 +23,12 @@ function inputValue( oEvent ) {
 						<input type="button" id="numberSix" class="Sudoku-number" value="6" > \
 						<input type="button" id="numberSeven" class="Sudoku-number" value="7" > \
 						<input type="button" id="numberEight" class="Sudoku-number" value="8" > \
-						<input type="button" id="numberTen" class="Sudoku-number" value="9" > \
-					</div>';
-		oTargetElement.appendChild( oChildElement );
-		document.getElementById( "Sudoku-Number" ).addEventListener( "click", selectNumber );
+						<input type="button" id="numberNine" class="Sudoku-number" value="9" > \
+					   ';
+	oTargetElement.innerHTML = oInnerHtml;
+	this.sCurrentCellId = oSelectedInput.id;
+	document.getElementById( "Sudoku-Number" ).addEventListener( "click", selectNumber );
+
 }
 
 function selectNumber( oEvent ) {
@@ -36,12 +36,46 @@ function selectNumber( oEvent ) {
 	var oSelectedNumber = oEvent.srcElement;
 	var sNumberId = oSelectedNumber.id;
 	var oSelecteButton = document.getElementById( sNumberId );
+	var sNumberString = sNumberId[];
+
+	var nRow = ( parseInt( this.sCurrentCellId.splice( this.sCurrentCellId.length - 2, 1 ) ) - 1 ) * 9;
+	var nColumn = parseInt( this.sCurrentCellId.splice( this.sCurrentCellId.length - 1, 1) ) - 1;
+
+	var oSelectedCell = this.oSudoku[ nRow * 9 + nColumn ];
 	if ( flag ) {
 		oSelecteButton.style.color = "black";
+		if ( oSelectedCell.number[0] === "" ){
+			oSelectedCell.number[0] = returnSelectedNumber( )
+		}
+
 		flag = false;
+		
 	} else {
 		oSelecteButton.style.color = "";
 		flag = true;
+	}
+}
+
+function returnSelectedNumber( sSelectString ) {
+	switch( sSelectString ) {
+		case "One":
+			return 1;
+		case "Two":
+			return 2;
+		case "Three":
+			return 3;
+		case "Four":
+			return 4;
+		case "Five":
+			return 5;
+		case "Six":
+			return 6;
+		case "Seven":
+			return 7;
+		case "Eight";
+			return 8;
+		case "Nine":
+			return 9;
 	}
 }
 
@@ -54,7 +88,7 @@ function onInitial() {
 		int = clearInterval( int );
 	} 
 
-	var oSudoku = Array.apply( null, { length: 81 } ).map( function( _, index ) {
+	this.oSudoku = Array.apply( null, { length: 81 } ).map( function( _, index ) {
 		return {
 			id: index,
 			number: [0],
@@ -62,15 +96,15 @@ function onInitial() {
 		};	
 	});
 
-	oSudoku = generateSudoku( oSudoku, nDifficultyValue );
+	this.oSudoku = generateSudoku( this.oSudoku, nDifficultyValue );
 
-	for( nIt = 0; nIt < oSudoku.length && nIt < 81; nIt++ ) {	
+	for( nIt = 0; nIt < this.oSudoku.length && nIt < 81; nIt++ ) {	
 
 		nRowNum = Math.floor( nIt  / 9 ) + 1;
 		nColNum = nIt % 9 + 1;
 		sColId = "Sudoku-Col" + nRowNum + nColNum;
 		oElement = document.getElementById( sColId );
-		oElement.value = oSudoku[ nIt ].number[ 0 ];
+		oElement.value = this.oSudoku[ nIt ].number[ 0 ];
 		if ( oElement.value === '' ) {
 			oElement.disabled = false;
 		} else {
