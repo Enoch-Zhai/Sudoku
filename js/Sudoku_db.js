@@ -3,7 +3,6 @@ var tHours = 0;
 var tMinutes = 0;
 var tSeconds = 0;
 var tMilliSeconds = 0;
-var sCurrentCellId;
 
 var int;
 
@@ -26,7 +25,7 @@ function inputValue( oEvent ) {
 						<input type="button" id="numberNine" class="Sudoku-number" value="9" > \
 					   ';
 	oTargetElement.innerHTML = oInnerHtml;
-	this.sCurrentCellId = oSelectedInput.id;
+	oTargetElement.selectedCellId = oSelectedInput.id;
 	document.getElementById( "Sudoku-Number" ).addEventListener( "click", selectNumber );
 
 }
@@ -36,23 +35,32 @@ function selectNumber( oEvent ) {
 	var oSelectedNumber = oEvent.srcElement;
 	var sNumberId = oSelectedNumber.id;
 	var oSelecteButton = document.getElementById( sNumberId );
-	var sNumberString = sNumberId[];
+	var sNumberString = sNumberId.substring(6);
+	var nSelectedNumber = returnSelectedNumber( sNumberString );
+	var sCurrentCellId = oSelecteButton.parentNode.selectedCellId;
+	var that = window.parent; 
 
-	var nRow = ( parseInt( this.sCurrentCellId.splice( this.sCurrentCellId.length - 2, 1 ) ) - 1 ) * 9;
-	var nColumn = parseInt( this.sCurrentCellId.splice( this.sCurrentCellId.length - 1, 1) ) - 1;
+	var nRow = ( parseInt( sCurrentCellId[ sCurrentCellId.length - 2 ] )  - 1 ) * 9;
+	var nColumn = parseInt( sCurrentCellId[ sCurrentCellId.length - 1 ] ) - 1;
 
-	var oSelectedCell = this.oSudoku[ nRow * 9 + nColumn ];
+	var oSelectedCell = that.oSudoku[ nRow + nColumn ];
 	if ( flag ) {
 		oSelecteButton.style.color = "black";
+
 		if ( oSelectedCell.number[0] === "" ){
-			oSelectedCell.number[0] = returnSelectedNumber( )
+			oSelectedCell.number[0] = nSelectedNumber;
+		} else {
+			oSelectedCell.number.push( nSelectedNumber );
 		}
+
+		document.getElementById( sCurrentCellId ).value += '' + nSelectedNumber;
 
 		flag = false;
 		
 	} else {
-		oSelecteButton.style.color = "";
-		flag = true;
+
+		oSelectedCell = oSelectedCell.number.splice( oSelectedCell.number.indexOf( nSelectedNumber ), 1 );
+
 	}
 }
 
@@ -72,7 +80,7 @@ function returnSelectedNumber( sSelectString ) {
 			return 6;
 		case "Seven":
 			return 7;
-		case "Eight";
+		case "Eight":
 			return 8;
 		case "Nine":
 			return 9;
